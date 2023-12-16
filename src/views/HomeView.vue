@@ -17,4 +17,14 @@ main {
   border: solid 1px #969696;
   display: flex;
 }
+
+@media screen and (max-width: 1200px) {
+  main {
+  width: 100%;
+  height: 100%;
+  border: solid 1px #969696;
+  display: flex;
+  flex-direction: column;
+}
+}
 </style>

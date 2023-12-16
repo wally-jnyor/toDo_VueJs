@@ -176,4 +176,9 @@ svg {
   stroke-dashoffset: 100;
   transition: 0.6s ease-out;
 }
+@media screen and (max-width: 1200px) {
+  .main {
+    display: none;
+   }
+}
 </style>

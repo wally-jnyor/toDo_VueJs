@@ -30,4 +30,15 @@
   width: 100%;
   height: 20%;
 }
+
+@media screen and (max-width: 1200px) {
+  .main {
+    border: solid 1px #ffff;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
 </style>

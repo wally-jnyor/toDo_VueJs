@@ -1,7 +1,9 @@
 <template>
-  <div class="searchBox">
+  <div class="main">
+    <div class="searchBox">
     <input type="text" value="" placeholder="Search">
     <button type="submit">O-</button>
+  </div>
   </div>
 </template>
 
@@ -27,5 +29,11 @@
   width: 50px;
   background-color: #ffffff00;
   color:#ffff;
+}
+
+@media screen and (max-width: 1200px) {
+  .searchBox {
+  display: none;
+}
 }
 </style>
