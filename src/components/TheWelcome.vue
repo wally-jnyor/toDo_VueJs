@@ -8,14 +8,10 @@
       Enemi Name
       <div class="score">score: ????</div>
     </div>
+    <div class="title">resume current weekly task</div>
+    <div class="title">recent victoriesrecent victories</div>
     <div class="title">
-      resume current weekly task
-    </div>
-    <div class="title">
-      recent victoriesrecent victories
-    </div>
-    <div class="title">
-      <footerStatusBar/>
+      <footerStatusBar />
     </div>
   </div>
 </template>
@@ -26,7 +22,6 @@ import footerStatusBar from './FooterStatusBar.vue'
 
 <style scoped>
 .main {
-  border: solid 1px #ffff;
   width: 60%;
   display: flex;
   flex-direction: column;
@@ -35,6 +30,7 @@ import footerStatusBar from './FooterStatusBar.vue'
 .title {
   width: 100%;
   height: 20%;
+  padding: 15px;
 }
 
 @media screen and (max-width: 1200px) {
@@ -45,9 +41,8 @@ import footerStatusBar from './FooterStatusBar.vue'
     flex-direction: column;
     justify-content: space-between;
     border-radius: 20px;
-  background: radial-gradient(circle at 10% 20%, rgb(0, 0, 0) 0%, rgb(64, 64, 64) 90.2%);
-
-
+    background-color: #100e17;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 1.1);
   }
 }
 </style>
