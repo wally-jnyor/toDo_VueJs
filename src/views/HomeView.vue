@@ -16,6 +16,7 @@ main {
   height: 100%;
   border: solid 1px #969696;
   display: flex;
+  /*background-image: url('../../public/img/imgd.jpg');*/
 }
 
 @media screen and (max-width: 1200px) {
@@ -25,6 +26,7 @@ main {
   border: solid 1px #969696;
   display: flex;
   flex-direction: column;
+  padding: 0 10px 0 10px;
 }
 }
 </style>
