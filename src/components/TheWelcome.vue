@@ -10,14 +10,11 @@
     </div>
     <div class="title">resume current weekly task</div>
     <div class="title">recent victoriesrecent victories</div>
-    <div class="title">
-      <footerStatusBar />
-    </div>
   </div>
 </template>
 
 <script setup>
-import footerStatusBar from './FooterStatusBar.vue'
+
 </script>
 
 <style scoped>
@@ -29,8 +26,41 @@ import footerStatusBar from './FooterStatusBar.vue'
 }
 .title {
   width: 100%;
-  height: 20%;
+  height: 17.5%;
   padding: 15px;
+  border-radius: 10px;
+  /*
+  background-color: #100e17;
+  box-shadow: 0px 5px 15px rgba(0, 0, 0, 1.01)*/
+}
+
+.navigation {
+  width: 100%;
+  height: 17.5%;
+  padding: 15px;
+}
+
+li {
+  border: solid 1px #ffff;
+  list-style: none;
+  width: 5rem;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px 0 10px;
+}
+.navBar {
+  display: flex;
+  width: 100%;
+  height: 70%;
+}
+
+@media screen and (max-width: 1200px) {
+  .navBar {
+    display: flex;
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 1200px) {
@@ -40,9 +70,6 @@ import footerStatusBar from './FooterStatusBar.vue'
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border-radius: 20px;
-    background-color: #100e17;
-    box-shadow: 0px 0px 30px rgba(0, 0, 0, 1.1);
   }
 }
 </style>

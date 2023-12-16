@@ -30,7 +30,6 @@
 <style scoped>
 .footer {
   height: 5rem;
-  border: solid 1px #dd00ff;
   width: 100%;
   display: flex;
   align-items: end;
