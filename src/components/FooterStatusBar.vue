@@ -12,7 +12,7 @@
         <RouterLink to="/quests">Missions</RouterLink>
       </li>
       <li class="navigationList">
-        <RouterLink to="/bag">Conquistas</RouterLink>
+        <RouterLink to="/bag">Completed</RouterLink>
       </li>
       <li class="navigationList">
         <RouterLink to="/about">About</RouterLink>
