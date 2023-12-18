@@ -29,7 +29,6 @@
   align-items: end;
 }
 li {
-  border: solid 1px #ffff;
   list-style: none;
   width: 5rem;
   height: 100%;

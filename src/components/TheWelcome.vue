@@ -58,7 +58,6 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    border: solid 1px;
   }
   .container {
     width: 100%;
@@ -67,6 +66,8 @@
     flex-direction: column;
     justify-content: space-between;
     padding: 10px;
+    background-color: #ffaaf052;
+    border-radius: 25PX;
   }
   .title {
     border: solid 1px;
