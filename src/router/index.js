@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import BagUser from '../views/UserBag.vue'
-import BattleField from '../views/BattleField.vue'
-import GeneralStatus from '../views/GeneralStatus.vue'
 import Quests from '../views/QuestsList.vue'
 
 const router = createRouter({
@@ -17,16 +15,6 @@ const router = createRouter({
             path: '/bag',
             name: 'bag',
             component: BagUser
-        },
-        {
-            path: '/battle',
-            name: 'battle',
-            component: BattleField
-        },
-        {
-            path: '/status',
-            name: 'status',
-            component: GeneralStatus
         },
         {
             path: '/quests',

@@ -6,19 +6,13 @@
   <div class="footer">
     <nav class="navBar">
       <li class="navigationList">
-        <RouterLink to="/">Home</RouterLink>
+        <RouterLink to="/">Geral</RouterLink>
       </li>
       <li class="navigationList">
-        <RouterLink to="/quests">Quests</RouterLink>
+        <RouterLink to="/quests">Missions</RouterLink>
       </li>
       <li class="navigationList">
-        <RouterLink to="/status">Status</RouterLink>
-      </li>
-      <li class="navigationList">
-        <RouterLink to="/bag">Bag</RouterLink>
-      </li>
-      <li class="navigationList">
-        <RouterLink to="/battle">Battle</RouterLink>
+        <RouterLink to="/bag">Conquistas</RouterLink>
       </li>
       <li class="navigationList">
         <RouterLink to="/about">About</RouterLink>

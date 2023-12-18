@@ -1,20 +1,24 @@
 <template>
   <div class="main">
     <div class="title">
-      Hello, Name
-      <div class="score">score: ????</div>
+      <div>
+        data
+      </div>
+      <div class="score"></div>
+      <div class="score">
+        <div></div>
+        <div></div>
+      </div>
     </div>
     <div class="title">
-      Enemi Name
-      <div class="score">score: ????</div>
+      <div class="score"></div>
     </div>
-    <div class="title">resume current weekly task</div>
-    <div class="title">recent victoriesrecent victories</div>
+    <div class="title"></div>
+    <div class="title"></div>
   </div>
 </template>
 
 <script setup>
-
 </script>
 
 <style scoped>
