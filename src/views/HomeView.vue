@@ -14,7 +14,6 @@ import TaskList from '../components/TasksList.vue'
 main {
   width: 100%;
   height: 100%;
-  border: solid 1px #969696;
   display: flex;
   /*background-image: url('../../public/img/imgd.jpg');*/
 }
@@ -23,7 +22,6 @@ main {
   main {
     width: 100%;
     height: 100%;
-    border: solid 1px #969696;
     display: flex;
     flex-direction: column;
     /*padding: 10px 10px 10px 10px;*/
