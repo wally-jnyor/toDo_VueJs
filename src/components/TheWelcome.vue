@@ -6,7 +6,7 @@
         <h2>Hello, {{ user.name }}! - {{ user.dataHora }}</h2>
         <div v-for="finance in user.finance.investment_cash" :key="finance.id">
           <p>Target: {{ finance.name }} - Progress: {{ finance.total }} / {{ finance.amount }}</p>
-          <p>fakeback- {{!finance ? userFakeBackend : finance.name}}</p>
+          <p>fakeback- {{userFakeBackend}}</p>
         </div>
         <p>something motivating</p>
         <div class="navbar">
