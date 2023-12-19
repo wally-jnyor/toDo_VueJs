@@ -1,7 +1,6 @@
 <template>
   <div class="main">
-    <p>{{userDatabackend.name}}</p>
-    <div class="container" v-show="hasAcessToDesktop">
+    <div class="container" v-if="userData">
       <div v-for="user in userData" :key="user.id">
         <div class="title">
         <h2>Hello, {{ user.name}}! - {{ user.dataHora }}</h2>
@@ -40,6 +39,9 @@
         </div>
       </div>
       </div>
+    </div>
+    <div v-if="!userData">
+      <p>{{userDatabackend.name}}</p>
     </div>
   </div>
 </template>
