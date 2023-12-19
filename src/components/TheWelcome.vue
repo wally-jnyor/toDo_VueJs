@@ -1,10 +1,9 @@
 <template>
   <div class="main">
-
+    <p>{{}}</p>
     <div class="container" v-show="hasAcessToDesktop">
       <div v-for="user in userData" :key="user.id">
         <div class="title">
-        <h3>has acess to desktop</h3>
         <h2>Hello, {{ user.name || userDatabackend.name}}! - {{ user.dataHora }}</h2>
         <div v-for="finance in user.finance.investment_cash" :key="finance.id">
           <p>Target: {{ finance.name }} - Progress: {{ finance.total }} / {{ finance.amount }}</p>
@@ -54,8 +53,7 @@ export default {
     return {
       userData: [],
       hasAcessToDesktop: true,
-      userDatabackend: [
-        {
+      userDatabackend: {
             "id": 1,
             "name": "João Silva",
             "age": 30,
@@ -113,13 +111,12 @@ export default {
                 }
             ]
         }
-    ]
     }
   },
   mounted() {
     this.getUserData()
     this.hasToDesktop()
-    console.log(this.hasAcessToDesktop)
+    console.log(this.userDatabackend)
   },
   methods: {
     getUserData() {
@@ -134,6 +131,7 @@ export default {
     },
     hasToDesktop() {
       this.userData ? this.hasAcessToDesktop = true : this.hasAcessToDesktop = false
+      console.log(this.hasAcessToDesktop)
     },
   },
 }
