@@ -1,10 +1,10 @@
 <template>
   <div class="main">
-    <p>{{}}</p>
+    <p>{{userDatabackend.name}}</p>
     <div class="container" v-show="hasAcessToDesktop">
       <div v-for="user in userData" :key="user.id">
         <div class="title">
-        <h2>Hello, {{ user.name || userDatabackend.name}}! - {{ user.dataHora }}</h2>
+        <h2>Hello, {{ user.name}}! - {{ user.dataHora }}</h2>
         <div v-for="finance in user.finance.investment_cash" :key="finance.id">
           <p>Target: {{ finance.name }} - Progress: {{ finance.total }} / {{ finance.amount }}</p>
         </div>
