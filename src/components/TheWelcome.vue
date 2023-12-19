@@ -1,7 +1,10 @@
 <template>
   <div class="main">
+    <div v-if="hasAcessToDesktop">
+        <p>{{hasAcessToDesktop}}</p>
+    </div>
 
-    <div class="container" v-show="userData">
+    <div class="container" v-show="hasAcessToDesktop">
       <div v-for="user in userData" :key="user.id">
         <div class="title">
         <h2>Hello, {{ user.name }}! - {{ user.dataHora }}</h2>
@@ -42,7 +45,7 @@
       </div>
     </div>
 
-    <div class="container" v-if="!userData">
+    <div class="container" v-show="!hasAcessToDesktop">
       <div v-for="user in userDatabackend" :key="user.id">
         <div class="title">
         <h2>Hello, {{ user.name }}! - {{ user.dataHora }}</h2>
@@ -93,6 +96,7 @@ export default {
   data() {
     return {
       userData: [],
+      hasAcessToDesktop: true,
       userDatabackend: [
         {
             "id": 1,
@@ -156,7 +160,7 @@ export default {
     }
   },
   mounted() {
-    this.getUserData()
+    this.getUserData() ? this.hasAcessToDesktop = true : this.hasAcessToDesktop = false
     console.log(this.userDatabackend)
   },
   methods: {
