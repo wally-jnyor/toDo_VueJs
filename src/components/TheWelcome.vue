@@ -1,12 +1,10 @@
 <template>
   <div class="main">
-    <div v-if="hasAcessToDesktop">
-        <p>{{hasAcessToDesktop}}</p>
-    </div>
 
     <div class="container" v-show="hasAcessToDesktop">
       <div v-for="user in userData" :key="user.id">
         <div class="title">
+        <h3>has acess to desktop</h3>
         <h2>Hello, {{ user.name }}! - {{ user.dataHora }}</h2>
         <div v-for="finance in user.finance.investment_cash" :key="finance.id">
           <p>Target: {{ finance.name }} - Progress: {{ finance.total }} / {{ finance.amount }}</p>
@@ -160,8 +158,9 @@ export default {
     }
   },
   mounted() {
-    this.getUserData() ? this.hasAcessToDesktop = true : this.hasAcessToDesktop = false
-    console.log(this.userDatabackend)
+    this.getUserData()
+    this.hasToDesktop()
+    console.log(this.hasAcessToDesktop)
   },
   methods: {
     getUserData() {
@@ -173,6 +172,9 @@ export default {
         .catch((error) => {
           console.error('Erro ao buscar dados:', error)
         })
+    },
+    hasToDesktop() {
+      this.userData ? this.hasAcessToDesktop = true : this.hasAcessToDesktop = false
     },
   },
 }
