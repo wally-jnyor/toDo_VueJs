@@ -1,7 +1,7 @@
 <template>
   <div class="main">
 
-    <div class="container" v-if="userData">
+    <div class="container" v-show="userData">
       <div v-for="user in userData" :key="user.id">
         <div class="title">
         <h2>Hello, {{ user.name }}! - {{ user.dataHora }}</h2>
@@ -42,7 +42,7 @@
       </div>
     </div>
 
-    <div class="container" v-if="userDatabackend">
+    <div class="container" v-if="!userData">
       <div v-for="user in userDatabackend" :key="user.id">
         <div class="title">
         <h2>Hello, {{ user.name }}! - {{ user.dataHora }}</h2>
