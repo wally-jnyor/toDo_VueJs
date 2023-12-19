@@ -1,10 +1,12 @@
 <template>
   <div class="main">
-    <div class="container">
+    <div class="container" v-for="user in userData" :key="user.id">
       <div class="title">
-        <h2>Hello, NAME!</h2>
-        <p>Doing now:</p>
-        <p>something motivating</p>
+        <h2>Hello, {{user.name}}! - {{user.dataHora}}</h2>
+        <div v-for="finance in user.finance.investment_cash" :key="finance.id">
+          <p>Target: {{ finance.name }} - Progress: {{ finance.total }} / {{finance.amount}}</p>
+        </div>
+        <p >something motivating</p>
         <div class="navbar">
           <li class="navigationList">
             <RouterLink to="/user-details">Details</RouterLink>
@@ -12,8 +14,10 @@
         </div>
       </div>
       <div class="title">
-        <h2>Missions</h2>
-        <p>Doing now:</p>
+        <h2>Missions in process</h2>
+        <div v-for="task in user.checklist" :key="task.id">
+          <p>Doing now: {{task.title}} - {{ task.dataHora }} - {{ task.local }}</p>
+        </div>
         <div class="navbar">
           <li class="navigationList">
             <RouterLink to="/quests">Details</RouterLink>
@@ -23,18 +27,39 @@
       <div class="title">
         <h2>Completed</h2>
         <p>something motivating</p>
+        <div v-for="task in user.checklist" :key="task.id">
+          <p v-if="task.status != 1">{{task.title}} - {{ task.dataHora }} - {{ task.local }}</p>
+        </div>
         <div class="navbar">
           <li class="navigationList">
             <RouterLink to="/bag">Details</RouterLink>
           </li>
         </div>
       </div>
-      <div class="title"></div>
     </div>
   </div>
 </template>
 
-<script setup>
+<script>
+//import userData from '../fakeBackend/UserData'
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      userData: [],
+    };
+  },
+  mounted() {
+    axios.get('http://localhost:3000/userData')
+      .then(response => {
+        this.userData = response.data;
+      })
+      .catch(error => {
+        console.error('Erro ao buscar dados:', error);
+      });
+  },
+};
 </script>
 
 <style scoped>
@@ -70,7 +95,6 @@
     border-radius: 25PX;
   }
   .title {
-    border: solid 1px;
   }
 }
 </style>
