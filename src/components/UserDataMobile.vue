@@ -1,9 +1,6 @@
 <template>
   <div class="main">
-    <div v-if="!userData">
-      <userDataMobile/>
-    </div>
-    <div class="container">
+    <div class="container" v-if="userData">
       <div v-for="user in userData" :key="user.id">
         <div class="title">
         <h2>Hello, {{ user.name }}! - {{ user.dataHora }}</h2>
@@ -47,33 +44,75 @@
 </template>
 
 <script>
-import userDataMobile from '../components/UserDataMobile.vue' //mobile acess
-import axios from 'axios'
 
 export default {
-  components: {
-    userDataMobile
-  },
   data() {
     return {
-      userData: [],
+      userData: [
+        {
+            "id": 1,
+            "name": "João Silva",
+            "age": 30,
+            "dataHora": "2023-12-15T08:00:00",
+            "prioridade": "alta",
+            "ativo": true,
+            "status": "pendente",
+            "work": [
+                {
+                    "occupation": "Revisar estatísticas",
+                    "wage": 2400
+                }
+            ],
+            "finance": {
+                "wage": 2400,
+                "safe": 400,
+                "free_money": 300,
+                "monthly_expenses": 500,
+                "investment_cash": [
+                    {
+                        "id":2,
+                        "name": "pc gamer",
+                        "amount": 4000,
+                        "total": 127
+                    },
+                    {
+                        "id":3,
+                        "name": "casa",
+                        "amount": 100000,
+                        "total": 20000
+                    }
+                ]
+            },
+            "checklist": [
+                {
+                    "title": "Revisar estatísticas",
+                    "description": "ir em tal lugar, fazer tal coisa",
+                    "local" : "rua tal, loja tal, numero tal",
+                    "dataHora": "2023-12-15T08:00:00",
+                    "status": 1
+                },
+                {
+                    "title": "Role não sei aonde",
+                    "description": "ir em tal lugar, fazer tal coisa",
+                    "local" : "rua tal, loja tal, numero tal",
+                    "dataHora": "2023-12-15T08:00:00",
+                    "status": 0
+                },
+                {
+                    "title": "Organizar a casa",
+                    "description": "ir em tal lugar, fazer tal coisa",
+                    "local" : "rua tal, loja tal, numero tal",
+                    "dataHora": "2023-12-15T08:00:00",
+                    "status": 1
+                }
+            ]
+        }
+    ]
     }
   },
   mounted() {
-    this.getUserData()
-    console.log(this.userData)
   },
   methods: {
-    getUserData() {
-      axios
-        .get('http://localhost:3000/userData')
-        .then((response) => {
-          this.userData = response.data
-        })
-        .catch((error) => {
-          console.error('Erro ao buscar dados:', error)
-        })
-    },
   },
 }
 </script>
