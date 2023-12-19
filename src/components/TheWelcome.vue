@@ -1,9 +1,9 @@
 <template>
   <div class="main">
-    <p>fakeback- {{userDatabackend}}</p>
-    <div class="container" v-for="user in userData" :key="user.id">
-<p>fakeback- {{userDatabackend}}</p>
-      <div class="title">
+    <p>{{userDatabackend}}</p>
+    <div class="container" v-if="userData">
+      <div v-for="user in userData" :key="user.id">
+        <div class="title">
         <h2>Hello, {{ user.name }}! - {{ user.dataHora }}</h2>
         <div v-for="finance in user.finance.investment_cash" :key="finance.id">
           <p>Target: {{ finance.name }} - Progress: {{ finance.total }} / {{ finance.amount }}</p>
@@ -38,6 +38,7 @@
             <RouterLink to="/bag">Details</RouterLink>
           </li>
         </div>
+      </div>
       </div>
     </div>
   </div>
@@ -114,7 +115,7 @@ export default {
     }
   },
   mounted() {
-    //this.getUserData()
+    this.getUserData()
     console.log(this.userDatabackend)
   },
   methods: {
