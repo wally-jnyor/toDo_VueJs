@@ -40,6 +40,7 @@
       </div>
       </div>
     </div>
+    <mobileUserData/>
     <div> desktop: {{ hasAcessToDesktop }} -- mobile: {{ hasMobileAccess }}</div>
     <div v-show="hasMobileAccess">
       <mobileUserData/>
