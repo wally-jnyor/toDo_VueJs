@@ -40,7 +40,8 @@
       </div>
       </div>
     </div>
-    <div v-show="hasMobileAccess" v-if="hasAcessToDesktop==false">
+    <div> desktop: {{ hasAcessToDesktop }} -- mobile: {{ hasMobileAccess }}</div>
+    <div v-show="hasMobileAccess">
       <mobileUserData/>
       <p>{{}}</p>
     </div>
@@ -59,19 +60,20 @@ export default {
   data() {
     return {
       userData: '',
-      hasAcessToDesktop: true,
-      hasMobileAccess: true
+      hasMobileAccess: false,
+      hasAcessToDesktop: true
     }
   },
   computed: {
     hasData() {
-      return Array.isArray(this.userData) && this.userData.length > 0;
+      return Array.isArray(this.userData) && this.userData.length > 0 ? true : false;
     }
   },
   mounted() {
     this.getUserData()
+    this.checkAccess()
     //this.hasToDesktop()
-    //console.log(this.userDatabackend)
+    console.log(this.userData.length)
   },
   methods: {
     getUserData() {
@@ -87,12 +89,8 @@ export default {
     checkAccess() {
       // Verifique aqui suas condições para definir o acesso ao desktop e ao dispositivo móvel
       // Exemplo básico para alterar com base na presença de dados em userData
-      this.hasAcessToDesktop = this.hasData;
-      this.hasMobileAccess = !this.hasData; // Invertendo para dispositivos móveis
-    },
-    hasToDesktop() {
-      this.userData ? this.hasAcessToDesktop = true : this.hasAcessToDesktop = false
-      console.log(this.hasAcessToDesktop)
+      this.hasAcessToDesktop = !this.hasData;
+      this.hasMobileAccess = this.hasData; // Invertendo para dispositivos móveis
     },
   },
 }
