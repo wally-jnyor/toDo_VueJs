@@ -41,7 +41,7 @@
       </div>
     </div>
     <div> desktop: {{ hasAcessToDesktop }} -- mobile: {{ hasMobileAccess }}</div>
-    <div v-if="!hasMobileAccess">
+    <div v-if="hasMobileAccess">
       <mobileUserData/>
       <p>oloco</p>
     </div>
@@ -71,7 +71,7 @@ export default {
   },
   mounted() {
     this.getUserData()
-    //this.checkAccess()
+    this.checkAccess()
     //this.hasToDesktop()
     console.log(this.userData.length)
   },
