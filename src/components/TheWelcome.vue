@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <div class="container" v-if="userData">
+    <div class="container" v-show="hasAcessToDesktop">
       <div v-for="user in userData" :key="user.id">
         <div class="title">
         <h2>Hello, {{ user.name}}! - {{ user.dataHora }}</h2>
@@ -40,8 +40,9 @@
       </div>
       </div>
     </div>
-    <div v-if="!userData">
-      <p>{{userDatabackend.name}}</p>
+    <div v-if="hasAcessToDesktop === false">
+      <mobileUserData/>
+      <p>{{}}</p>
     </div>
   </div>
 </template>
@@ -49,76 +50,27 @@
 <script>
 //import fakeBackEnd from '../fakeBackend/UserData' //mobile acess
 import axios from 'axios'
+import mobileUserData from '../components/UserDataMobile.vue'
 
 export default {
+  components: {
+    mobileUserData,
+  },
   data() {
     return {
-      userData: [],
+      userData: '',
       hasAcessToDesktop: true,
-      userDatabackend: {
-            "id": 1,
-            "name": "João Silva",
-            "age": 30,
-            "dataHora": "2023-12-15T08:00:00",
-            "prioridade": "alta",
-            "ativo": true,
-            "status": "pendente",
-            "work": [
-                {
-                    "occupation": "Revisar estatísticas",
-                    "wage": 2400
-                }
-            ],
-            "finance": {
-                "wage": 2400,
-                "safe": 400,
-                "free_money": 300,
-                "monthly_expenses": 500,
-                "investment_cash": [
-                    {
-                        "id":2,
-                        "name": "pc gamer",
-                        "amount": 4000,
-                        "total": 127
-                    },
-                    {
-                        "id":3,
-                        "name": "casa",
-                        "amount": 100000,
-                        "total": 20000
-                    }
-                ]
-            },
-            "checklist": [
-                {
-                    "title": "Revisar estatísticas",
-                    "description": "ir em tal lugar, fazer tal coisa",
-                    "local" : "rua tal, loja tal, numero tal",
-                    "dataHora": "2023-12-15T08:00:00",
-                    "status": 1
-                },
-                {
-                    "title": "Role não sei aonde",
-                    "description": "ir em tal lugar, fazer tal coisa",
-                    "local" : "rua tal, loja tal, numero tal",
-                    "dataHora": "2023-12-15T08:00:00",
-                    "status": 0
-                },
-                {
-                    "title": "Organizar a casa",
-                    "description": "ir em tal lugar, fazer tal coisa",
-                    "local" : "rua tal, loja tal, numero tal",
-                    "dataHora": "2023-12-15T08:00:00",
-                    "status": 1
-                }
-            ]
-        }
+    }
+  },
+  computed: {
+    hasData() {
+      return Array.isArray(this.userData) && this.userData.length > 0;
     }
   },
   mounted() {
     this.getUserData()
-    this.hasToDesktop()
-    console.log(this.userDatabackend)
+    //this.hasToDesktop()
+    //console.log(this.userDatabackend)
   },
   methods: {
     getUserData() {
@@ -130,6 +82,12 @@ export default {
         .catch((error) => {
           console.error('Erro ao buscar dados:', error)
         })
+    },
+    checkAccess() {
+      // Verifique aqui suas condições para definir o acesso ao desktop e ao dispositivo móvel
+      // Exemplo básico para alterar com base na presença de dados em userData
+      this.hasAcessToDesktop = this.hasData;
+      this.hasMobileAccess = !this.hasData; // Invertendo para dispositivos móveis
     },
     hasToDesktop() {
       this.userData ? this.hasAcessToDesktop = true : this.hasAcessToDesktop = false
