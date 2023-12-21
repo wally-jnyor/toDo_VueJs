@@ -40,7 +40,7 @@
       </div>
       </div>
     </div>
-    <div v-if="hasAcessToDesktop === false">
+    <div v-show="hasMobileAccess" v-if="hasAcessToDesktop==false">
       <mobileUserData/>
       <p>{{}}</p>
     </div>
@@ -60,6 +60,7 @@ export default {
     return {
       userData: '',
       hasAcessToDesktop: true,
+      hasMobileAccess: true
     }
   },
   computed: {
