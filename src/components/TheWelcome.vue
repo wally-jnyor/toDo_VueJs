@@ -40,7 +40,7 @@
       </div>
       </div>
     </div>
-    <div> desktop: {{ hasAcessToDesktop }} -- mobile: {{ hasMobileAccess }}</div>
+    <div> desktop: {{ hasAcessToDesktop ? userData : "sem userdata" }} -- mobile: {{ hasMobileAccess }}</div>
     <div v-if="hasMobileAccess">
       <mobileUserData/>
       <p>oloco</p>
