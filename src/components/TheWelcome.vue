@@ -1,6 +1,6 @@
 <template>
   <div class="main">
-    <div class="container" v-show="hasAcessToDesktop">
+    <div class="container" v-if="hasAcessToDesktop">
       <div v-for="user in userData" :key="user.id">
         <div class="title">
         <h2>Hello, {{ user.name}}! - {{ user.dataHora }}</h2>
@@ -40,11 +40,10 @@
       </div>
       </div>
     </div>
-    <mobileUserData/>
     <div> desktop: {{ hasAcessToDesktop }} -- mobile: {{ hasMobileAccess }}</div>
-    <div v-show="hasMobileAccess">
+    <div v-if="!hasMobileAccess">
       <mobileUserData/>
-      <p>{{}}</p>
+      <p>oloco</p>
     </div>
   </div>
 </template>
@@ -72,7 +71,7 @@ export default {
   },
   mounted() {
     this.getUserData()
-    this.checkAccess()
+    //this.checkAccess()
     //this.hasToDesktop()
     console.log(this.userData.length)
   },
